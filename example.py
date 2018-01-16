@@ -1,9 +1,17 @@
-print(len('ABC')) # 3
-print(len('森A')) # 2
-x = b'\xc9\xad' 
-print(x) 
-print(x.decode("GBK")) # 森
-print(len(x)) # 2
-# 1个中文字符经过UTF-8编码后通常会占用3个字节，而1个英文字符只占用1个字节。
-print(len('森'.encode('utf-8'))) # 3
-print(len('森A'.encode('utf-8'))) # 4
+class Student(object):
+	"""docstring for Student"""
+	def __init__(self, kw):
+		super(Student, self).__init__()
+		self.kw = kw
+		
+	def getValue(self):
+		return self.kw
+	def setValue(self, **kw):
+		self.kw = kw
+
+
+
+x = {"a":1, "b":2}
+s = Student(x)
+
+print(s.getValue())
