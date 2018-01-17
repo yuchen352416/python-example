@@ -5,16 +5,25 @@
 
 __author__ = 'Mr.Li'
 
-import sys
 
-def test():
-    args = sys.argv
-    if len(args) == 1:
-        print("Hello World!")
-    elif len(args) == 2:
-        print("Hello {0}!".format(args[1]))
-    else:
-        print("Parameter Error")
+class Animal(object):
 
-if __name__ == "__main__":
-    test()
+    def run(self):
+        print("Animal is running...")
+
+
+class Dog(Animal):
+    pass
+
+
+class Cat(Animal):
+    pass
+
+
+pig = Animal()
+dog = Dog()
+cat = Cat()
+
+pig.run()
+dog.run()
+cat.run()
