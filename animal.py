@@ -124,21 +124,3 @@ setattr(cat, "eat", eat)
 
 cat.eat()
 
-
-class Liqueur(object):
-    name = "五粮液"
-
-    def __int__(self, *args):
-        super(Liqueur, self).__init__()
-        if len(args > 0):
-            self.name = args[0]
-        self.name = name
-        self.name = name
-
-    def __str__(self):
-        return Liqueur.name
-
-name = "金六福"
-l = Liqueur(name)
-print(l)
-print(l.name)
