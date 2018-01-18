@@ -34,6 +34,8 @@ print(pig.__name)  # 实际上就是给 pig 绑了一个新的属性
 pig.call()
 
 
+
+
 print("\n\n\n")
 
 # Python 可以在类的方法内用 self 绑定属性, 也可在类的外部绑定属性
@@ -45,12 +47,12 @@ class Dog(Animal):
     def call(self):
         # print("Dog(name:{0}, age:{1}) wang....".format(super().__name, super.age));
         print("Dog(name:{0}, age:{1}) wang....".format(super(Dog, self).getAnimalInfo().get("name"),
-                                                       super(Dog, self).getAnimalInfo().get("age")));
+                                                       self.age));
 
     def __str__(self):  # 重写父类方法
         # return "Dog(name:{0}, age:{1})".format(super().__name, super.age)
         return "Dog(name:{0}, age:{1})".format(super(Dog, self).getAnimalInfo().get("name"),
-                                               super(Dog, self).getAnimalInfo().get("age"))
+                                               self.age)
 
 
 class Cat(Animal):
@@ -59,13 +61,13 @@ class Cat(Animal):
 
     def call(self):
         # print("Cat(name:{0}, age:{1}) miao....".format(self.__name, self.age));
-        print("Cat(name:{0}, age:{1}) miao....".format(super(Cat, self).getAnimalInfo().get("name"),
-                                                       super(Cat, self).getAnimalInfo().get("age")));
+        print("Cat(name:{0}, age:{1}) miao....".format(self.getAnimalInfo().get("name"),
+                                                       self.age));
 
     def __str__(self):  # 重写父类方法
         # return "Cat(name:{0}, age:{1})".format(self.__name, self.age)
-        return "Cat(name:{0}, age:{1})".format(super(Cat, self).getAnimalInfo().get("name"),
-                                               super(Cat, self).getAnimalInfo().get("age"))
+        return "Cat(name:{0}, age:{1})".format(self.getAnimalInfo().get("name"),
+                                               self.age)
 
 
 dog = Dog({"name": "lucy", "age": 2})
@@ -73,10 +75,6 @@ cat = Cat({"name":"lola", "age":1})
 
 dog.call()
 cat.call()
-
-
-print("\n\n\n")
-
 
 print("pig is Animal", isinstance(pig, Animal))
 print("dog is Dog", isinstance(dog, Dog))
@@ -87,9 +85,60 @@ print("cat is Animal", isinstance(cat, Animal))
 
 print("\n\n\n")
 
+dog.age = 1
 
-def getCall(animal):
-    animal.call();
+def getAnimal(animal):
+    print(animal)
 
 
-getCall(pig)
+getAnimal(pig)
+getAnimal(dog)
+getAnimal(cat)
+
+print("\n\n\n")
+
+
+##############################################################################################################
+
+print(type(pig) == Animal)
+
+print(dir(pig))
+print(dir(dog))
+
+print(getattr(pig, "__name") if hasattr(pig, "__name") else "404")
+print(getattr(dog, "__name") if hasattr(dog, "__name") else "404")
+
+if hasattr(cat, "__name"):
+    print(cat.__name)
+else:
+    setattr(cat, "__name", "tom")
+
+print(cat.__name)
+
+getattr(cat, "call")()
+
+def eat():
+    print("eat.... ing.....")
+
+setattr(cat, "eat", eat)
+
+cat.eat()
+
+
+class Liqueur(object):
+    name = "五粮液"
+
+    def __int__(self, *args):
+        super(Liqueur, self).__init__()
+        if len(args > 0):
+            self.name = args[0]
+        self.name = name
+        self.name = name
+
+    def __str__(self):
+        return Liqueur.name
+
+name = "金六福"
+l = Liqueur(name)
+print(l)
+print(l.name)
