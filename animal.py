@@ -87,6 +87,7 @@ print("\n\n\n")
 
 dog.age = 1
 
+
 def getAnimal(animal):
     print(animal)
 
@@ -122,8 +123,12 @@ def eat():
     print("eat.... ing.....")
 
 
-setattr(cat, "eat", eat)
+setattr(cat, "eat", eat) # 是将方法绑定到了cat这个对象上, 而非类上. 所以新创建的类, 没有eat方法
 
 cat.eat()
+
+cat2 = Cat({"name":"tom", "age":4})
+cat2.call()
+cat2.eat()
 
 
