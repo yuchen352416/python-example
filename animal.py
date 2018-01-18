@@ -41,7 +41,7 @@ print("\n\n\n")
 # Python 可以在类的方法内用 self 绑定属性, 也可在类的外部绑定属性
 
 class Dog(Animal):
-    def __int__(self, args):
+    def __init__(self, args):
         super(Dog, self).__init__(args)
 
     def call(self):
@@ -56,7 +56,7 @@ class Dog(Animal):
 
 
 class Cat(Animal):
-    def __int__(self, args):
+    def __init__(self, args):
         super(Cat, self).__init__(args)
 
     def call(self):
@@ -117,8 +117,10 @@ print(cat.__name)
 
 getattr(cat, "call")()
 
+
 def eat():
     print("eat.... ing.....")
+
 
 setattr(cat, "eat", eat)
 

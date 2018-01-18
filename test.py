@@ -5,25 +5,8 @@
 
 __author__ = 'Mr.Li'
 
+class Student(object):
+	def __init__(self, args):
+		super(Student, self).__init__()
+		self.args = args
 
-class Animal(object):
-
-    def run(self):
-        print("Animal is running...")
-
-
-class Dog(Animal):
-    pass
-
-
-class Cat(Animal):
-    pass
-
-
-pig = Animal()
-dog = Dog()
-cat = Cat()
-
-pig.run()
-dog.run()
-cat.run()
