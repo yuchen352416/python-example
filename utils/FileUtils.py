@@ -8,8 +8,9 @@ class FileUtils(object):
 		super(FileUtils, self).__init__()
 		self.file_name = args.get("file_name")
 
-	def readLine(self, mode='r'):
-		f = open(self.file_name, mode)
+	def read_line(self, mode='r'):
+		f = open(self.file_name, mode, encoding="UTF-8")
+		result = []
 		for line in f.readlines():
-			yield line.strip()
-
+			result.append(line.strip())
+		return result
