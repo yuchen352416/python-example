@@ -8,7 +8,7 @@ class TestFileUtils(unittest.TestCase):
 
 	def test_init(self):
 		f = FileUtils(file_name="/Users/smile/Desktop/学习计划.txt")
-		print(f.read_line(mode='r'))
+		print(f)
 
 
 if __name__ == "__main__":
